@@ -6,6 +6,7 @@ endprogram.f fj_ts0.f lrunx.f observat.f orcaso.f possol.f proas.f \
 ranred.f readc.f readf.f readi.f readilim.f rmblank.f sexag.f \
 tiempou.f traspasa.f truebeg.f truelen.f version.inc
 
-LDADD =  $(PGPLOT_LIBS)
+proas_LDADD=  $(PGPLOT_LIBS) $(PLOT_LIBS)
+proas_CFLAGS=  $(PLOT_CFLAGS)
 
 EXTRA_DIST = proas.inc
