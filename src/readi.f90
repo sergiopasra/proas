@@ -1,24 +1,24 @@
-C------------------------------------------------------------------------------
-C                                                                 File: readi.f
-C------------------------------------------------------------------------------
-Comment
-C
-C INTEGER FUNCTION READI(CDEF)
-C
-C Input: CDEF
-C Output: READI (function)
-C
-C Return an integer number entered by the user through the keyboard.
-C
-C CHARACTER*(*) CDEF -> character string with default value for READI
-C               ('@' if there is no default)
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!                                                                 File: readi.f
+!------------------------------------------------------------------------------
+!omment
+!
+! INTEGER FUNCTION READI(CDEF)
+!
+! Input: CDEF
+! Output: READI (function)
+!
+! Return an integer number entered by the user through the keyboard.
+!
+! CHARACTER*(*) CDEF -> character string with default value for READI
+!               ('@' if there is no default)
+!
+!omment
+!------------------------------------------------------------------------------
         INTEGER FUNCTION READI(CDEF)
         IMPLICIT NONE
         CHARACTER*(*) CDEF
-C
+!
         INTEGER I,L1,L2
         INTEGER N
         INTEGER NERR
@@ -27,7 +27,7 @@ C
         CHARACTER*255 CDUMMY
         CHARACTER*255 CADENA
         LOGICAL LRUN,LMANUAL
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
         NERR=0
 10      IF(CDEF.NE.'@')THEN
           L1=TRUEBEG(CDEF)
@@ -50,8 +50,7 @@ C------------------------------------------------------------------------------
         END IF
         DO I=1,TRUELEN(CADENA)
           C=CADENA(I:I)
-          IF((INDEX('abcdefghijklmnopqrstuvwxyz',C).NE.0).OR.
-     +     (INDEX('ABCDEFGHIJKLMNOPQRSTUVWXYZ./',C).NE.0))THEN
+          IF((INDEX('abcdefghijklmnopqrstuvwxyz',C).NE.0).OR.(INDEX('ABCDEFGHIJKLMNOPQRSTUVWXYZ./',C).NE.0))THEN
             GOTO 20
           END IF
         END DO
@@ -69,8 +68,7 @@ C------------------------------------------------------------------------------
           WRITE(*,101) '\\ttshade{'//CDUMMY(1:L2)//'}'
         END IF
         RETURN
-20      WRITE(*,101)'ERROR: invalid character(s) found in '//
-     +   'number. Try again.'
+20      WRITE(*,101)'ERROR: invalid character(s) found in '//'number. Try again.'
         IF(CDEF.EQ.'@') WRITE(*,100)'? '
         NERR=NERR+1
         IF(NERR.GT.10) STOP 'FATAL ERROR: too many errors.'

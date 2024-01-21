@@ -1,12 +1,13 @@
 ## Process this file with automake to produce Makefile.in
 
 bin_PROGRAMS = proas
-proas_SOURCES = cambcoor.f chlower.f decimal.f dibuhoja.f dibuobje.f \
-endprogram.f fj_ts0.f lrunx.f observat.f orcaso.f possol.f proas.f \
-ranred.f readc.f readf.f readi.f readilim.f rmblank.f sexag.f \
-tiempou.f traspasa.f truebeg.f truelen.f version.inc
+proas_SOURCES = cambcoor.f90 chlower.f90 decimal.f90 dibuhoja.f90 dibuobje.f90 \
+endprogram.f90 fj_ts0.f90 lrunx.f90 observat.f90 orcaso.f90 possol.f90 \
+proas.f90 \
+ranred.f90 readc.f90 readf.f90 readi.f90 readilim.f90 rmblank.f90 sexag.f90 \
+tiempou.f90 traspasa.f90 truebeg.f90 truelen.f90 version.inc
 
-proas_LDADD=  $(PGPLOT_LIBS) $(PLOT_LIBS)
-proas_CFLAGS=  $(PLOT_CFLAGS)
+proas_LDADD=  $(PLOT_LIBS)
+proas_FCFLAGS=  $(PLOT_CFLAGS)
 
 EXTRA_DIST = proas.inc

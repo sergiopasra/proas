@@ -1,21 +1,21 @@
-C------------------------------------------------------------------------------
-C                                                                 File: lrunx.f
-C
-C------------------------------------------------------------------------------
-Comment
-C
-C SUBROUTINE LRUNX(LRUN,LMANUAL)
-C
-C Output: LRUNX,LMANUAL
-C
-C Determine whether files .running_RUN and .running_MANUAL exist in current
-C directory
-C
-C LOGICAL LRUN -> .TRUE. if file .running_RUN exist (.FALSE. otherwise)
-C LOGICAL LMANUAL -> .FALSE. if file .running_MANUAL exist (.FALSE. otherwise)
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!                                                                 File: lrunx.f
+!
+!------------------------------------------------------------------------------
+!omment
+!
+! SUBROUTINE LRUNX(LRUN,LMANUAL)
+!
+! Output: LRUNX,LMANUAL
+!
+! Determine whether files .running_RUN and .running_MANUAL exist in current
+! directory
+!
+! LOGICAL LRUN -> .TRUE. if file .running_RUN exist (.FALSE. otherwise)
+! LOGICAL LMANUAL -> .FALSE. if file .running_MANUAL exist (.FALSE. otherwise)
+!
+!omment
+!------------------------------------------------------------------------------
         SUBROUTINE LRUNX(LRUN,LMANUAL)
         IMPLICIT NONE
         LOGICAL LRUN,LMANUAL

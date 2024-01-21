@@ -1,24 +1,24 @@
-C------------------------------------------------------------------------------
-C                                                                 File: readf.f
-C------------------------------------------------------------------------------
-Comment
-C
-C REAL FUNCTION READF(CDEF)
-C
-C Input: CDEF
-C Output: READF (function)
-C
-C Return a float number entered by the user through the keyboard.
-C
-C CHARACTER*(*) CDEF -> character string with default value for READF
-C               ('@' if there is no default)
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!                                                                 File: readf.f
+!------------------------------------------------------------------------------
+!omment
+!
+! REAL FUNCTION READF(CDEF)
+!
+! Input: CDEF
+! Output: READF (function)
+!
+! Return a float number entered by the user through the keyboard.
+!
+! CHARACTER*(*) CDEF -> character string with default value for READF
+!               ('@' if there is no default)
+!
+!omment
+!------------------------------------------------------------------------------
         REAL FUNCTION READF(CDEF)
         IMPLICIT NONE
         CHARACTER*(*) CDEF
-C
+!
         INTEGER I,L1,L2
         INTEGER NERR
         REAL F
@@ -27,7 +27,7 @@ C
         CHARACTER*255 CDUMMY
         CHARACTER*255 CADENA
         LOGICAL LRUN,LMANUAL
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
         NERR=0
 10      IF(CDEF.NE.'@')THEN
           L1=TRUEBEG(CDEF)
@@ -50,8 +50,7 @@ C------------------------------------------------------------------------------
         END IF
         DO I=1,TRUELEN(CADENA)
           C=CADENA(I:I)
-          IF((INDEX('abcfghijklmnoprstuvwxyz',C).NE.0).OR.
-     +     (INDEX('ABCFGHIJKLMNOPRSTUVWXYZ/',C).NE.0))THEN
+          IF((INDEX('abcfghijklmnoprstuvwxyz',C).NE.0).OR.(INDEX('ABCFGHIJKLMNOPRSTUVWXYZ/',C).NE.0))THEN
             GOTO 20
           END IF
         END DO
@@ -69,8 +68,7 @@ C------------------------------------------------------------------------------
           WRITE(*,101) '\\ttshade{'//CDUMMY(1:L2)//'}'
         END IF
         RETURN
-20      WRITE(*,101)'ERROR: invalid character(s) found in '//
-     +   'number. Try again.'
+20      WRITE(*,101)'ERROR: invalid character(s) found in '//'number. Try again.'
         IF(CDEF.EQ.'@') WRITE(*,100)'? '
         NERR=NERR+1
         IF(NERR.GT.10) STOP 'FATAL ERROR: too many errors.'

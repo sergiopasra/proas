@@ -1,32 +1,32 @@
-C------------------------------------------------------------------------------
-C                                                                 File: readc.f
-C------------------------------------------------------------------------------
-Comment
-C
-C CHARACTER*(*) FUNCTION READC(CDEF,CVAL)
-C
-C Input: CDEF,CVAL
-C Output: READC (function)
-C
-C Return a character string entered by the user through the keyboard.
-C
-C CHARACTER*(*) CDEF -> character with default value for READC
-C               ('@' if there is no default)
-C CHARACTER*(*) CVAL -> character string with valid characters
-C               ('@' if all characters are valid)
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!                                                                 File: readc.f
+!------------------------------------------------------------------------------
+!omment
+!
+! CHARACTER*(*) FUNCTION READC(CDEF,CVAL)
+!
+! Input: CDEF,CVAL
+! Output: READC (function)
+!
+! Return a character string entered by the user through the keyboard.
+!
+! CHARACTER*(*) CDEF -> character with default value for READC
+!               ('@' if there is no default)
+! CHARACTER*(*) CVAL -> character string with valid characters
+!               ('@' if all characters are valid)
+!
+!omment
+!------------------------------------------------------------------------------
         CHARACTER*(*) FUNCTION READC(CDEF,CVAL)
         IMPLICIT NONE
         CHARACTER*(*) CDEF,CVAL
-C
+!
         INTEGER I,L1,L2
         INTEGER TRUEBEG,TRUELEN
         INTEGER NERR
         CHARACTER*255 CADENA
         LOGICAL LRUN,LMANUAL
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
         NERR=0
 10      IF(CDEF.NE.'@')THEN
           L1=TRUEBEG(CDEF)

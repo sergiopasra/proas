@@ -1,40 +1,40 @@
-C **********************************************************************
-C                                                      SUBROUTINE ORCASO
-C                                                      *****************
-C
+! **********************************************************************
+!                                                      SUBROUTINE ORCASO
+!                                                      *****************
+!
       SUBROUTINE ORCASO(DEC,DISZEN)
-C
-C Calculamos para un objeto concreto, su visibilidad, ortos, ocasos, 
-C culminacion y condiciones en las cuales obtiene una distancia
-C cenital igual a DISZEN.
-C
+!
+! Calculamos para un objeto concreto, su visibilidad, ortos, ocasos, 
+! culminacion y condiciones en las cuales obtiene una distancia
+! cenital igual a DISZEN.
+!
       IMPLICIT NONE
-C---> argumentos ficticios: ENTRADA
+!---> argumentos ficticios: ENTRADA
       REAL DEC,DISZEN
-C---> variables globales: ENTRADA
+!---> variables globales: ENTRADA
       REAL LAT,LONG
-C---> variables globales: SALIDA
+!---> variables globales: SALIDA
       REAL HORTO,HOCASO
       REAL AORTO,AOCASO
       REAL ALTCUL
       CHARACTER*1 ESTADO,DONCUL      
-C---> parametros locales
+!---> parametros locales
       REAL PI
       PARAMETER(PI=3.141593)
-C---> variables locales
+!---> variables locales
       REAL LATR,DECR
       REAL COSENOH,COSENOA
       REAL ALTR
-C---> common blocks
+!---> common blocks
       COMMON/BLKOBS/LAT,LONG
       COMMON/BLKOOC1/ESTADO,DONCUL
       COMMON/BLKOOC2/HORTO,HOCASO,AORTO,AOCASO,ALTCUL
-C
-C Determinamos visibilidad de los objetos y determinamos su ESTADO
-C segun el siguiente criterio
-C     ESTADO = I ==> Objeto INVISIBLE
-C     ESTADO = C ==> Objeto CIRCUMPOLAR
-C     ESTADO = O ==> Objeto con ORTOS y OCASOS
+!
+! Determinamos visibilidad de los objetos y determinamos su ESTADO
+! segun el siguiente criterio
+!     ESTADO = I ==> Objeto INVISIBLE
+!     ESTADO = C ==> Objeto CIRCUMPOLAR
+!     ESTADO = O ==> Objeto con ORTOS y OCASOS
       IF(LAT.GE.0)THEN
         IF(DEC.GE.90.-LAT)THEN
           ESTADO='C'
@@ -71,7 +71,7 @@ C     ESTADO = O ==> Objeto con ORTOS y OCASOS
       END IF
       HORTO=HORTO/15.
       HOCASO=HOCASO/15.
-C Determinamos la altura en las culminaciones superiores
+! Determinamos la altura en las culminaciones superiores
       IF(ESTADO.NE.'I')THEN
         IF(LATR.GE.0)THEN
           IF(DEC.LE.LAT)THEN

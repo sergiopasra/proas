@@ -1,29 +1,29 @@
-C **********************************************************************
-C                                                    SUBROUTINE CAMBCOOR
-C                                                    *******************
-C
+! **********************************************************************
+!                                                    SUBROUTINE CAMBCOOR
+!                                                    *******************
+!
       SUBROUTINE CAMBCOOR(HOR,DEC,ACI,ALT)
-C
-C Transformaciones de coordenadas:
-C (angulo horario,declinacion) ----> (acimut,altura)
-C
+!
+! Transformaciones de coordenadas:
+! (angulo horario,declinacion) ----> (acimut,altura)
+!
       IMPLICIT NONE
-C---> parametros
+!---> parametros
       REAL PI
       PARAMETER(PI=3.141593)
-C---> argumentos ficticios: ENTRADA
+!---> argumentos ficticios: ENTRADA
       REAL HOR,DEC
-C---> argumentos ficticios: SALIDA
+!---> argumentos ficticios: SALIDA
       REAL ACI,ALT
-C---> variables globales
+!---> variables globales
       REAL LAT,LONG
-C---> variables locales
+!---> variables locales
       REAL HORR,DECR
       REAL LATR
       REAL SENOAC,COSEAC
-C---> common blocks
+!---> common blocks
       COMMON/BLKOBS/LAT,LONG
-C
+!
       HORR=HOR*PI/180.*15.
       DECR=DEC*PI/180.
       LATR=LAT*PI/180.

@@ -1,21 +1,21 @@
-C **********************************************************************
-C                                                     SUBROUTINE TIEMPOU
-C                                                     ******************
-C
+! **********************************************************************
+!                                                     SUBROUTINE TIEMPOU
+!                                                     ******************
+!
       SUBROUTINE TIEMPOU(A,H,L,TS0,TU)
-C
-C Calculo del Tiempo Universal.
-C Datos: A.R., h, Longitud, TSG0
-C
+!
+! Calculo del Tiempo Universal.
+! Datos: A.R., h, Longitud, TSG0
+!
       IMPLICIT NONE
-C---> argumentos ficticios: ENTRADA
+!---> argumentos ficticios: ENTRADA
       REAL A,H,L,TS0
-C---> argumentos ficticios: SALIDA
+!---> argumentos ficticios: SALIDA
       REAL TU
-C---> variables locales
+!---> variables locales
       REAL TSL,TSG
       REAL DTS
-C
+!
       TSL=A+H
       IF(TSL.GT.24.)TSL=TSL-24.
       TSG=TSL-L

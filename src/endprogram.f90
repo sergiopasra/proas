@@ -1,19 +1,19 @@
-C------------------------------------------------------------------------------
-C                                                            File: endprogram.f
-C
-C------------------------------------------------------------------------------
-Comment
-C
-C SUBROUTINE ENDPROGRAM(CADENA)
-C
-C Input: CADENA
-C
-C Stop the program
-C
-C CHARACTER*10 CADENA -> if CADENA='endprogram' STOP
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!                                                            File: endprogram.f
+!
+!------------------------------------------------------------------------------
+!omment
+!
+! SUBROUTINE ENDPROGRAM(CADENA)
+!
+! Input: CADENA
+!
+! Stop the program
+!
+! CHARACTER*10 CADENA -> if CADENA='endprogram' STOP
+!
+!omment
+!------------------------------------------------------------------------------
         SUBROUTINE ENDPROGRAM(CADENA)
         IMPLICIT NONE
         CHARACTER*10 CADENA
@@ -22,7 +22,7 @@ C------------------------------------------------------------------------------
           WRITE(*,100)'Do you want to STOP the program (y/n) [n] ?'
           READ(*,'(A)') CSTOP
           IF(CSTOP.EQ.'y')THEN
-            CALL PGEND
+            CALL PLEND
             STOP
           END IF
         END IF

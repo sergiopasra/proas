@@ -1,32 +1,32 @@
-C------------------------------------------------------------------------------
-Comment
-C
-C REAL FUNCTION RANRED(NSEED)
-C
-C Input: NSEED
-C Output: RANRED (function)
-C
-C Return a random number in the range [0,1) using the intrinsic fortran
-C function RAND(). If NSEED<0 a previous call to SRAND(TIME()) is also 
-C performed.
-C
-C INTEGER NSEED -> NSEED=0: RANRED returns the next random number in the
-C                           sequence.
-C                  NSEED<0: RANRED performs a previous call to the
-C                           intrinsic fortran function SRAND(TIME()), and
-C                           generates a random number in the new sequence.
-C                           In this case NSEED returns 0.
-C                  NSEED>0: RANRED performs a previous call to the
-C                           intrinsic fortran function SRAND(NSEED), and
-C                           generates a random number in the new sequence.
-C                           In this case NSEED returns 0.
-C
-Comment
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
+!omment
+!
+! REAL FUNCTION RANRED(NSEED)
+!
+! Input: NSEED
+! Output: RANRED (function)
+!
+! Return a random number in the range [0,1) using the intrinsic fortran
+! function RAND(). If NSEED<0 a previous call to SRAND(TIME()) is also 
+! performed.
+!
+! INTEGER NSEED -> NSEED=0: RANRED returns the next random number in the
+!                           sequence.
+!                  NSEED<0: RANRED performs a previous call to the
+!                           intrinsic fortran function SRAND(TIME()), and
+!                           generates a random number in the new sequence.
+!                           In this case NSEED returns 0.
+!                  NSEED>0: RANRED performs a previous call to the
+!                           intrinsic fortran function SRAND(NSEED), and
+!                           generates a random number in the new sequence.
+!                           In this case NSEED returns 0.
+!
+!omment
+!------------------------------------------------------------------------------
         REAL FUNCTION RANRED(NSEED)
         IMPLICIT NONE
         INTEGER NSEED
-C------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
         IF(NSEED.EQ.0)THEN
           RANRED=RAND()
           RETURN
@@ -37,5 +37,5 @@ C------------------------------------------------------------------------------
         END IF
         NSEED=0
         RANRED=RAND()
-C
+!
         END
